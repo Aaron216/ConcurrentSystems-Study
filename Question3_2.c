@@ -15,8 +15,15 @@ int main(int argc, char *argv[]) {
     long thread;    // Use long in case of 64-bit system
     pthread_t *thread_handles;
 
+    // Check number of input arguments
+    if (argc != 2) {
+        printf("Error: Incorrect number of input arguments.\n");
+        printf("Usage: %s <number of threads>\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
     n = 8192;
-    thread_count = 16;
+    thread_count = strtol(argv[1], NULL, 10);
 
     thread_handles = (pthread_t *)malloc(thread_count * sizeof(pthread_t));
     pthread_mutex_init(&mutex, NULL);
