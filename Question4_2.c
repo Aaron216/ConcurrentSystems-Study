@@ -5,8 +5,7 @@
 
 double function(int ii);
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     int nn = 1024;
     int thread_count = 8;
 

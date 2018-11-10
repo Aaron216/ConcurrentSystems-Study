@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 double Calc_vals(long long int n, double a, double b, int thread_count) {
     double sum_int_val = 0;
 
-#   pragma omp parallel num_threads(thread_count) \
+    #pragma omp parallel num_threads(thread_count) \
     default(none) reduction(+: sum_int_val) \
     shared(n, a, b, thread_count)
     {
@@ -30,7 +30,7 @@ double Calc_vals(long long int n, double a, double b, int thread_count) {
         long long int i;
         double x;
 
-#       pragma omp for
+        #pragma omp for
         for(i = 0; i <= n; i++) {
             x = (b - a)*my_drand(&seed) + a;
             sum_int_val += integrand(x);
